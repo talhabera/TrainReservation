@@ -17,20 +17,6 @@ namespace TrainReservation.Controllers
             new Tren("Doğu Ekspres", new List<Tren.Vagon>{new Tren.Vagon("Vagon 1", 200, 120), new Tren.Vagon("Vagon 2", 160, 100), new Tren.Vagon("Vagon 3", 140, 70)})
         };
 
-        private readonly ILogger<TrenController> _logger;
-
-        public TrenController(ILogger<TrenController> logger)
-        {
-            _logger = logger;
-        }
-
-        [NonAction]
-        public void onRequest()
-        {
-            _logger.LogInformation("Sayfa şu tarihte edildi: {DT}",
-                DateTime.UtcNow.ToLongTimeString());
-        }
-
         [HttpPost]
         public Bilet IsAvailable(string jsonRequest)
         {
